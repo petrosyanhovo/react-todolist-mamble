@@ -4,7 +4,9 @@ import TodoQuote from "../TodoQuote/TodoQuote";
 import "./TodoForm.css";
 const TodoForm = ({ onAdd, todos, isShowQuote }) => {
     const [text, setText] = useState("");
+    const [textLength, setTextLength] = useState(1);
     const clearTextRef = useRef();
+
     return (
         <div className="todo-form">
             <h2 className="header">Task</h2>
@@ -26,7 +28,10 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         type="text"
                         value={text}
                         onChange={(e) => {
+                            setTextLength(textLength + 1);
                             setText(e.target.value);
+                            console.log(textLength);
+                            if (textLength === 54) alert("Max length is 54");
                         }}
                         className="todo-input"
                     />
@@ -48,6 +53,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                     type="submit"
                     onClick={(e) => {
                         e.preventDefault();
+                        console.log("clicked");
                         onAdd(text);
                         setText("");
                     }}
