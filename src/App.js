@@ -10,6 +10,10 @@ const App = () => {
   const [todos, setTodos] = useState([])
   const [isShowQuote, setIsShowQuote] = useState(true)  
   const [isShowCheckbox, setIsShowCheckBox] = useState(false)
+  
+  if (isShowQuote === false && todos.length === 0) {
+    setIsShowQuote(true)
+  }
   return (
     <div className='todo-app'>
       {
