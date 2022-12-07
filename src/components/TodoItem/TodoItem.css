@@ -1,0 +1,50 @@
+label {
+    display: flex;
+    align-items: center;
+}
+
+input[type = "checkbox"] {
+    outline: none;
+    appearance: none;
+    height: 18px;
+    width: 18px;
+    background-color: none;
+    border: 2px solid #008594;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+input[type = "checkbox"]:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 12px;
+    color: white;
+    display: none;
+}
+
+input[type = "checkbox"]:checked {
+    background-color: #008594;
+    
+}
+input[type = "checkbox"]:checked:after {
+    display: block;
+}
+
+.delBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delBtn i {
+    color: #174348;
+    font-size: 30px;
+}
