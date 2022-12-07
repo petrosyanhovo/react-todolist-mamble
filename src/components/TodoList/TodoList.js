@@ -1,9 +1,10 @@
 import React from 'react'
 import TodoItem from '../TodoItem/TodoItem'
+import './TodoList.css'
 
 const TodoList = ({todos, onDelete, onChange}) => {
   return (
-    <div>
+    <div className='todo-list'>
         {
           todos.map((todo) => {
             return (

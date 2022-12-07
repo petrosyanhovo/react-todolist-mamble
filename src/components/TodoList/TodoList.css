@@ -1,0 +1,8 @@
+.todo-list {
+    margin-top: 62px;
+    width: 100%;
+}
+
+.todo-list .todo-item:nth-child(1) {
+    border: none;
+}

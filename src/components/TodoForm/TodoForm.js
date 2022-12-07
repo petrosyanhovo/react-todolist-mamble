@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
-import TodoList from "../TodoList/TodoList";
+// import TodoList from "../TodoList/TodoList";
 import TodoQuote from "../TodoQuote/TodoQuote";
 import "./TodoForm.css";
 const TodoForm = ({ onAdd, todos, isShowQuote }) => {
     const [text, setText] = useState("");
     const clearTextRef = useRef();
     return (
-        <div className="TodoForm">
+        <div className="todo-form">
             <h2 className="header">Task</h2>
             <form
                 onSubmit={(e) => {
@@ -18,6 +18,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                 <div className="forInput">
                     <input
                         onClick={(e) => {
+                            // e.preventDefault();
                             clearTextRef.current.style.display = "block";
                         }}
                         placeholder="Write here"
@@ -34,14 +35,25 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         onClick={(e) => {
                             e.preventDefault();
                             setText("");
+                            clearTextRef.current.style.display = "none";
                         }}
                         className="clearText"
                     >
-                        <i class="fa-solid fa-xmark"></i>
+                        <i className="fa-solid fa-xmark"></i>
                     </button>
                 </div>
 
-                <button className="addBtn">Add</button>
+                <button
+                    className="addBtn"
+                    type="submit"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        onAdd(text);
+                        setText("");
+                    }}
+                >
+                    Add
+                </button>
             </form>
             {isShowQuote ? <TodoQuote /> : null}
         </div>

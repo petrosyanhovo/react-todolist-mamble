@@ -1,0 +1,22 @@
+.todo-quote {
+    text-align: center;
+    margin-top: 140px;
+}
+
+.todo-quote h3 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: .2px;
+    color: #acacac;
+    margin: 0;
+}
+
+.todo-quote h2 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 54px;
+    letter-spacing: .2px;
+    color: #666;
+    margin: 0;
+}

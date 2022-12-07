@@ -9,22 +9,28 @@ const App = () => {
   // const [isChecked, setIsChecked] = useState(false);
   const [todos, setTodos] = useState([])
   const [isShowQuote, setIsShowQuote] = useState(true)  
-
+  const [isShowCheckbox, setIsShowCheckBox] = useState(false)
   return (
     <div className='todo-app'>
-      <TodoHeader todos={todos} onHideCompleted={() => {
+      {
+        isShowCheckbox ? <TodoHeader todos={todos} onHideCompleted={() => {
         setTodos(todos.filter((todo) => !todo.isCompleted))
-      }}  />
-      <TodoForm isShowQuote={isShowQuote} todos={todos} onAdd={(text) => {
-        setIsShowQuote(false)
-        setTodos([
-          ...todos,
-          {
-            id : Math.random(),
-            text,
-            isCompleted : false
-          }
-        ])
+      }}  /> : null
+      }
+      <TodoForm 
+        isShowQuote={isShowQuote} 
+        todos={todos}
+        onAdd={(text) => {
+          setIsShowQuote(false)
+          setIsShowCheckBox(true)
+          setTodos([
+            ...todos,
+            {
+              id : Math.random(),
+              text,
+              isCompleted : false
+            }
+          ])
       }} />
       <TodoList 
         todos={todos} 

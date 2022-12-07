@@ -1,11 +1,12 @@
 .hideCompleted {
     display: flex;
+    align-items: center;
     font-size: 18px;
     font-weight: 500;
     line-height: 27px;
     position: absolute;
-    right: 50;
-    
+    right: 150px;
+    top: 50px;
 }
 
 input[type = "checkbox"] {
@@ -13,6 +14,7 @@ input[type = "checkbox"] {
     appearance: none;
     height: 18px;
     width: 18px;
+    margin-right: 15px;
     background-color: none;
     border: 2px solid #008594;
     cursor: pointer;
