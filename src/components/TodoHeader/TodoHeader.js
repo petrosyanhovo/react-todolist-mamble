@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoHeader.css";
 
-const TodoHeader = ({ todos, onHideCompleted }) => {
+const TodoHeader = ({ todos, onHideCompleted, completed, setCompleted }) => {
     todos.filter((todo) => todo.isCompleted);
 
     return (

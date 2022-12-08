@@ -20,7 +20,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                 <div className="forInput">
                     <input
                         onClick={(e) => {
-                            // e.preventDefault();
+                            e.preventDefault();
                             clearTextRef.current.style.display = "block";
                         }}
                         placeholder="Write here"

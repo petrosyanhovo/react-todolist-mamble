@@ -10,6 +10,8 @@ const App = () => {
   const [todos, setTodos] = useState([])
   const [isShowQuote, setIsShowQuote] = useState(true)  
   const [isShowCheckbox, setIsShowCheckBox] = useState(false)
+  const [completed, setCompleted] = useState([])
+
   
   if (isShowQuote === false && todos.length === 0) {
     setIsShowQuote(true)
@@ -17,8 +19,18 @@ const App = () => {
   return (
     <div className='todo-app'>
       {
-        isShowCheckbox ? <TodoHeader todos={todos} onHideCompleted={() => {
-        setTodos(todos.filter((todo) => !todo.isCompleted))
+        isShowCheckbox ? <TodoHeader
+          todos={todos} 
+          onHideCompleted={(e) => {
+            if(e.target.checked) {
+            setCompleted(todos.filter((todo) => todo.isCompleted))
+            setTodos(todos.filter((todo) => !todo.isCompleted))
+            } else {
+              setTodos([
+                ...todos,
+                ...completed,
+              ])
+            }
       }}  /> : null
       }
       <TodoForm 
