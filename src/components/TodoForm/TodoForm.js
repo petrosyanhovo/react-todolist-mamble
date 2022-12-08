@@ -4,7 +4,7 @@ import TodoQuote from "../TodoQuote/TodoQuote";
 import "./TodoForm.css";
 const TodoForm = ({ onAdd, todos, isShowQuote }) => {
     const [text, setText] = useState("");
-    const [textLength, setTextLength] = useState(1);
+    // const [textLength, setTextLength] = useState(1);
     const [showError, setShowError] = useState(false);
 
     const clearTextRef = useRef();
@@ -16,7 +16,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
         } else if (text.length < 54) {
             setShowError(false)
         }
-    }, [textLength])
+    }, [text])
 
     return (
         <div className="todo-form">
@@ -32,7 +32,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                     <input
                         onClick={(e) => {
                             e.preventDefault();
-                            setTextLength(1)
+                            // setTextLength(1)
                             clearTextRef.current.style.display = "block";
                         }}
                         placeholder="Write here"
@@ -40,7 +40,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         type="text"
                         value={text}
                         onChange={(e) => {
-                            setTextLength(textLength + 1);
+                            // setTextLength(textLength + 1);
                             setText(e.target.value);
                             // console.log(textLength);
                             // if (textLength >= 54) {
@@ -74,9 +74,11 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                     type="submit"
                     onClick={(e) => {
                         e.preventDefault();
-                        console.log("clicked");
-                        onAdd(text);
-                        setText("");
+                        if (!showError) {
+                            console.log("clicked");
+                            onAdd(text);
+                            setText("");
+                        }
                     }}
                 >
                     Add
