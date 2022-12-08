@@ -86,6 +86,7 @@ form .forInput {
 
 .todo-input:focus {
     outline: none;
+    cursor: auto;
 }
 
 .todo-input::placeholder {

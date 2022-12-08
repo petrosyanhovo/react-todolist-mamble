@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import TodoList from './components/TodoList/TodoList'
 import TodoForm from './components/TodoForm/TodoForm'
@@ -7,11 +7,22 @@ import TodoHeader from './components/TodoHeader/TodoHeader'
 const App = () => {
 
   // const [isChecked, setIsChecked] = useState(false);
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem("todos");
+    if (savedTodos) {
+      return JSON.parse(savedTodos)
+    } else {
+      return []
+    }
+  })
   const [isShowQuote, setIsShowQuote] = useState(true)  
   const [isShowCheckbox, setIsShowCheckBox] = useState(false)
   const [completed, setCompleted] = useState([])
 
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+    console.log(todos)
+  }, [todos]);
   
   if (isShowQuote === false && todos.length === 0) {
     setIsShowQuote(true)
@@ -37,6 +48,7 @@ const App = () => {
         isShowQuote={isShowQuote} 
         todos={todos}
         onAdd={(text) => {
+          if(text !== "") {
           setIsShowQuote(false)
           setIsShowCheckBox(true)
           setTodos([
@@ -47,6 +59,7 @@ const App = () => {
               isCompleted : false
             }
           ])
+         } 
       }} />
       <TodoList 
         todos={todos} 
