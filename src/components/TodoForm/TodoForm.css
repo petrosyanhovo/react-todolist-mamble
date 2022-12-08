@@ -21,6 +21,14 @@ form .forInput {
     position: relative;
 }
 
+form .error {
+    font-size : 12px;
+    color : #FF3104;
+    font-weight : 400;
+    line-height : 18px;
+    /* display : none; */
+}
+
 .clearText {
     background: none;
     border: none;

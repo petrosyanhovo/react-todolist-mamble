@@ -26,7 +26,7 @@ const TodoItem = ({ todo, onChange, onDelete, openModal, setOpenModal }) => {
                     }}
                     className="delBtn"
                 >
-                    <i class="fa-solid fa-xmark"></i>
+                    <i className="fa-solid fa-xmark"></i>
                 </button>
             </label>
         </div>

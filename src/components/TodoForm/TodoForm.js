@@ -1,11 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 // import TodoList from "../TodoList/TodoList";
 import TodoQuote from "../TodoQuote/TodoQuote";
 import "./TodoForm.css";
 const TodoForm = ({ onAdd, todos, isShowQuote }) => {
     const [text, setText] = useState("");
     const [textLength, setTextLength] = useState(1);
+    const [showError, setShowError] = useState(false);
+
     const clearTextRef = useRef();
+
+    useEffect(() => {
+        if (text.length === 54) {
+            console.log("Length is 54")
+            setShowError(true)
+        } else if (text.length < 54) {
+            setShowError(false)
+        }
+    }, [textLength])
 
     return (
         <div className="todo-form">
@@ -21,6 +32,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                     <input
                         onClick={(e) => {
                             e.preventDefault();
+                            setTextLength(1)
                             clearTextRef.current.style.display = "block";
                         }}
                         placeholder="Write here"
@@ -30,11 +42,20 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         onChange={(e) => {
                             setTextLength(textLength + 1);
                             setText(e.target.value);
-                            console.log(textLength);
-                            if (textLength === 54) alert("Max length is 54");
+                            // console.log(textLength);
+                            // if (textLength >= 54) {
+                            //     setTextLength(1)
+                            //     setShowError(true);
+                            // } else if (textLength < 54) {
+                            //     setShowError(false)
+                            // }
+                            // setTextLength(1)
                         }}
                         className="todo-input"
                     />
+                    {
+                        showError && <div className="error">Task content can contain max 54 characters.</div>
+                    }
                     <button
                         ref={clearTextRef}
                         onClick={(e) => {

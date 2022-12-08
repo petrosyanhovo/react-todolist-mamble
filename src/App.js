@@ -37,7 +37,10 @@ const App = () => {
   return (
     <div className='todo-app'>
       {
-      openModal && <TodoModal/>
+      openModal && <TodoModal openModal={openModal} setOpenModal={setOpenModal} todos={todos} onDelete={(todo) => {
+        console.log("exo")
+        setTodos(todos.filter((t) => t.id !== todo.id))
+      }}/>
         }
       {
         isShowCheckbox && <TodoHeader
