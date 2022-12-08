@@ -2,13 +2,15 @@ import React from 'react'
 import TodoItem from '../TodoItem/TodoItem'
 import './TodoList.css'
 
-const TodoList = ({todos, onDelete, onChange}) => {
+const TodoList = ({todos, onDelete, onChange, openModal, setOpenModal}) => {
   return (
     <div className='todo-list'>
         {
           todos.map((todo) => {
             return (
               <TodoItem 
+                openModal={openModal}
+                setOpenModal={setOpenModal}
                 key={todo.id} 
                 todo = {todo}
                 onChange = {onChange}  

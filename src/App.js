@@ -3,6 +3,7 @@ import './App.css'
 import TodoList from './components/TodoList/TodoList'
 import TodoForm from './components/TodoForm/TodoForm'
 import TodoHeader from './components/TodoHeader/TodoHeader'
+import TodoModal from './components/TodoModal/TodoModal'
 
 const App = () => {
 
@@ -18,19 +19,28 @@ const App = () => {
   const [isShowQuote, setIsShowQuote] = useState(true)  
   const [isShowCheckbox, setIsShowCheckBox] = useState(false)
   const [completed, setCompleted] = useState([])
+  const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
+    if(todos.length !== 0) {
+       setIsShowQuote(false)
+       setIsShowCheckBox(true)
+      }
     console.log(todos)
-  }, [todos]);
+    if (isShowQuote === false && todos.length === 0) {
+      setIsShowQuote(true)
+    }
+  }, [todos, isShowQuote]);
   
-  if (isShowQuote === false && todos.length === 0) {
-    setIsShowQuote(true)
-  }
+  
   return (
     <div className='todo-app'>
       {
-        isShowCheckbox ? <TodoHeader
+      openModal && <TodoModal/>
+        }
+      {
+        isShowCheckbox && <TodoHeader
           todos={todos} 
           onHideCompleted={(e) => {
             if(e.target.checked) {
@@ -42,7 +52,7 @@ const App = () => {
                 ...completed,
               ])
             }
-      }}  /> : null
+      }}  /> 
       }
       <TodoForm 
         isShowQuote={isShowQuote} 
@@ -63,6 +73,8 @@ const App = () => {
       }} />
       <TodoList 
         todos={todos} 
+        openModal = {openModal}
+        setOpenModal = {setOpenModal}
         onDelete={(todo) => {
           setTodos(todos.filter((t) => t.id !== todo.id))
         }}
