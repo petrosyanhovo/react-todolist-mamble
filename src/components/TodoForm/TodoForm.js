@@ -8,15 +8,18 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
     const [showError, setShowError] = useState(false);
 
     const clearTextRef = useRef();
+    const inputRef = useRef();
 
     useEffect(() => {
         if (text.length === 54) {
-            console.log("Length is 54")
-            setShowError(true)
-        } else if (text.length < 54) {
-            setShowError(false)
+            console.log("Length is 54");
+            setShowError(true);
+            inputRef.current.style.borderColor = "#FF3104";
+        } else if (text.length <= 54) {
+            setShowError(false);
+            inputRef.current.style.borderColor = "#FFCD04";
         }
-    }, [text])
+    }, [text]);
 
     return (
         <div className="todo-form">
@@ -30,6 +33,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
             >
                 <div className="forInput">
                     <input
+                        ref={inputRef}
                         onClick={(e) => {
                             e.preventDefault();
                             // setTextLength(1)
@@ -53,10 +57,12 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         }}
                         className="todo-input"
                     />
-                    {
-                        showError && <div className="error">Task content can contain max 54 characters.</div>
-                    }
-                    <button
+                    {showError && (
+                        <div className="error">
+                            Task content can contain max 54 characters.
+                        </div>
+                    )}
+                    <span
                         ref={clearTextRef}
                         onClick={(e) => {
                             e.preventDefault();
@@ -66,7 +72,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         className="clearText"
                     >
                         <i className="fa-solid fa-xmark"></i>
-                    </button>
+                    </span>
                 </div>
 
                 <button

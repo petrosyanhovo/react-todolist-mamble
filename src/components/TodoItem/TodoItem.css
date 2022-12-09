@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-.todo-item .todo-item-label .left h4 {
+.todo-item .todo-item-label .left .todo-text {
     font-size: 18px;
     font-weight: 400;
     color: #666;
@@ -65,8 +65,8 @@ input[type = "checkbox"]:after {
 
 input[type = "checkbox"]:checked {
     background-color: #008594;
-    
 }
+
 input[type = "checkbox"]:checked:after {
     display: block;
 }
