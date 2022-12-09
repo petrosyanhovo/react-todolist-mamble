@@ -1,5 +1,9 @@
+
 .todo-item {
-    height: 72px;
+    transition : .2s;
+    /* height: 72px; */
+    /* height : 200px; */
+    /* padding : 10px 0; */
     width: 100%;
     border-top: 1px solid #E5E5E5;
 
@@ -21,6 +25,8 @@
     font-weight: 400;
     line-height: 32px;
     width: 80%;
+
+    /* padding : 10px 0; */
 }
 
 .todo-item .todo-item-label .left {
@@ -75,9 +81,10 @@ input[type = "checkbox"]:checked:after {
     background: none;
     border: none;
     cursor: pointer;
+    
 }
 
 .delBtn i {
     color: #174348;
-    font-size: 13px;
+    font-size: 18px;
 }

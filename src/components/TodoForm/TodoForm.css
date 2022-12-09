@@ -1,5 +1,5 @@
 .todo-form {
-    max-width: 1078px;
+    /* max-width: 1078px; */
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -102,4 +102,100 @@ form .error {
     font-family: Poppins;
     color: #dfdfdf;
     line-height: 27px;
+}
+
+/* MEDIA  */
+
+@media (max-width: 1200px) {
+    .todo-input {
+        width : 800px;
+    }
+}
+
+@media (max-width: 1115px) {
+    .todo-input {
+        width : 700px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .todo-input {
+        width : 600px;
+    }
+}
+
+@media (max-width: 880px) {
+    .todo-input {
+        width : 550px;
+    }
+}
+
+@media (max-width: 780px) {
+    .todo-input {
+        width : 500px;
+    }
+}
+
+@media (max-width: 720px) {
+    .todo-input {
+        width : 450px;
+    }
+}
+
+@media (max-width: 690px) {
+    .todo-input {
+        width : 550px;
+        margin : 0;
+    }
+
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        /* justify-content: center; */
+        /* width: 80%; */
+        /* width : 1078px; */
+        width : 100%
+    }
+
+    .addBtn {
+        margin-top : 16px;
+    }
+}
+
+@media (max-width: 690px) {
+    .todo-input {
+        width : 500px;
+    }
+}
+
+@media (max-width: 570px) {
+    .todo-input {
+        width : 450px;
+    }
+}
+
+@media (max-width: 500px) {
+    .todo-input {
+        width : 400px;
+    }
+}
+
+@media (max-width: 440px) {
+    .todo-input {
+        width : 100%;
+    }
+
+    .forInput {
+        width : 100%
+    }
+
+    form {
+        width : 100%
+    }
+
+    .todo-form {
+        width : 80%
+    }
 }

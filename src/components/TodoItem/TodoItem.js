@@ -1,19 +1,32 @@
 import React, { useEffect, useRef } from "react";
 import "./TodoItem.css";
+import TodoModal from '../TodoModal/TodoModal'
 
-const TodoItem = ({ todo, onChange, onDelete, openModal, setOpenModal }) => {
+const TodoItem = ({setTodos,todos, todo, onChange, onDelete, openModal, setOpenModal }) => {
 
-    const todoRef = useRef()
+    const todoTextRef = useRef();
+    const todoItemRef = useRef();
 
     useEffect(() => {
         if(todo.isCompleted) {
-            todoRef.current.style.color = "#ACACAC"
+            todoTextRef.current.style.color = "#ACACAC"
         } else {
-            todoRef.current.style.color = "#666666"
+            todoTextRef.current.style.color = "#666666"
         }
     }, [todo])
     return (
-        <div className="todo-item">
+        <div ref={todoItemRef} className="todo-item">
+            {
+            openModal && <TodoModal 
+                            openModal={openModal}
+                            setOpenModal={setOpenModal}
+                            todos={todos}
+                            onDelete={(todo) => {
+                                console.log("this is todo - " + todo)
+                                setTodos(todos.filter((t) => t.id !== todo.id))
+                            }
+                            }/>
+            }
             <label className="todo-item-label">
                 <div className="left">
                     <input
@@ -27,12 +40,12 @@ const TodoItem = ({ todo, onChange, onDelete, openModal, setOpenModal }) => {
                             });
                         }}
                     />
-                    {<h4 ref={todoRef} className="todo-text">{todo.text}</h4>}
+                    {<h4 ref={todoTextRef} className="todo-text">{todo.text}</h4>}
                 </div>
                 <button
                     onClick={() => {
                         setOpenModal(true);
-                        console.log(openModal);
+                        // console.log(openModal);
                         // onDelete(todo);
                     }}
                     className="delBtn"
