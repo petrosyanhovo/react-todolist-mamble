@@ -1,32 +1,41 @@
 import React, { useEffect, useRef } from "react";
 import "./TodoItem.css";
-import TodoModal from '../TodoModal/TodoModal'
+import TodoModal from "../TodoModal/TodoModal";
 
-const TodoItem = ({setTodos,todos, todo, onChange, onDelete, openModal, setOpenModal }) => {
-
+const TodoItem = ({
+    setTodos,
+    todos,
+    todo,
+    onChange,
+    onDelete,
+    openModal,
+    setOpenModal,
+}) => {
     const todoTextRef = useRef();
     const todoItemRef = useRef();
 
     useEffect(() => {
-        if(todo.isCompleted) {
-            todoTextRef.current.style.color = "#ACACAC"
+        if (todo.isCompleted) {
+            todoTextRef.current.style.color = "#ACACAC";
         } else {
-            todoTextRef.current.style.color = "#666666"
+            todoTextRef.current.style.color = "#666666";
         }
-    }, [todo])
+    }, [todo]);
     return (
         <div ref={todoItemRef} className="todo-item">
-            {
-            openModal && <TodoModal 
-                            openModal={openModal}
-                            setOpenModal={setOpenModal}
-                            todos={todos}
-                            onDelete={(todo) => {
-                                console.log("this is todo - " + todo)
-                                setTodos(todos.filter((t) => t.id !== todo.id))
-                            }
-                            }/>
-            }
+            {openModal && (
+                <TodoModal
+                    todo={todo}
+                    openModal={openModal}
+                    setOpenModal={setOpenModal}
+                    todos={todos}
+                    onDelete={(todo) => {
+                        console.log("this is todo - " + todo)
+                        setTodos(todos.filter((t) => t.id !== todo.id))
+                    }}
+                    // onDelete={onDelete}
+                />
+            )}
             <label className="todo-item-label">
                 <div className="left">
                     <input
@@ -40,7 +49,11 @@ const TodoItem = ({setTodos,todos, todo, onChange, onDelete, openModal, setOpenM
                             });
                         }}
                     />
-                    {<h4 ref={todoTextRef} className="todo-text">{todo.text}</h4>}
+                    {
+                        <h4 ref={todoTextRef} className="todo-text">
+                            {todo.text}
+                        </h4>
+                    }
                 </div>
                 <button
                     onClick={() => {

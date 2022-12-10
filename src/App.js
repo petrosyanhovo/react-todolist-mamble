@@ -3,7 +3,6 @@ import './App.css'
 import TodoList from './components/TodoList/TodoList'
 import TodoForm from './components/TodoForm/TodoForm'
 import TodoHeader from './components/TodoHeader/TodoHeader'
-import TodoModal from './components/TodoModal/TodoModal'
 
 const App = () => {
 
@@ -65,12 +64,12 @@ const App = () => {
           setIsShowQuote(false)
           setIsShowCheckBox(true)
           setTodos([
-            ...todos,
             {
               id : Math.random(),
               text,
               isCompleted : false
-            }
+            },
+            ...todos
           ])
          } 
       }} />
@@ -80,6 +79,7 @@ const App = () => {
         setOpenModal={setOpenModal}
         todos={todos} 
         onDelete={(todo) => {
+          // console.log(todo)
           setTodos(todos.filter((t) => t.id !== todo.id))
         }}
         onChange={(newTodo) => {
