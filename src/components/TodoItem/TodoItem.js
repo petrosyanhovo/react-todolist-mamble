@@ -1,18 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import "./TodoItem.css";
-import TodoModal from "../TodoModal/TodoModal";
+// import TodoModal from "../TodoModal/TodoModal";
 
 const TodoItem = ({
-    setTodos,
-    todos,
     todo,
     onChange,
-    onDelete,
-    openModal,
-    setOpenModal,
+    handleClickDelete
 }) => {
     const todoTextRef = useRef();
     const todoItemRef = useRef();
+
 
     useEffect(() => {
         if (todo.isCompleted) {
@@ -23,19 +20,19 @@ const TodoItem = ({
     }, [todo]);
     return (
         <div ref={todoItemRef} className="todo-item">
-            {openModal && (
+            {/* {openModal && (
                 <TodoModal
                     todo={todo}
                     openModal={openModal}
                     setOpenModal={setOpenModal}
                     todos={todos}
                     onDelete={(todo) => {
-                        console.log("this is todo - " + todo)
-                        setTodos(todos.filter((t) => t.id !== todo.id))
+                        // console.log(todo);
+                        // console.log(todos);
+                        setTodos(todos.filter((t) => t.id !== todo.id));
                     }}
-                    // onDelete={onDelete}
                 />
-            )}
+            )} */}
             <label className="todo-item-label">
                 <div className="left">
                     <input
@@ -56,11 +53,15 @@ const TodoItem = ({
                     }
                 </div>
                 <button
-                    onClick={() => {
-                        setOpenModal(true);
-                        // console.log(openModal);
-                        // onDelete(todo);
-                    }}
+                    // onClick={(e) => {
+                    //     console.log(e.target);
+                    //     setOpenModal(true);
+                    //     console.log(e);
+                    //     // console.log(openModal);
+                    //     // onDelete(todo);
+                    // }}
+
+                    onClick={() => handleClickDelete(todo.id)}
                     className="delBtn"
                 >
                     <i className="fa-solid fa-xmark"></i>

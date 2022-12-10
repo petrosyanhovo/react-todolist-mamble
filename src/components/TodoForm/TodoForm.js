@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-// import TodoList from "../TodoList/TodoList";
 import TodoQuote from "../TodoQuote/TodoQuote";
 import "./TodoForm.css";
-const TodoForm = ({ onAdd, todos, isShowQuote }) => {
+const TodoForm = ({ onAdd, isShowQuote }) => {
     const [text, setText] = useState("");
-    // const [textLength, setTextLength] = useState(1);
     const [showError, setShowError] = useState(false);
 
     const clearTextRef = useRef();
@@ -45,7 +43,6 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         ref={inputRef}
                         onClick={(e) => {
                             e.preventDefault();
-                            // setTextLength(1)
                             clearTextRef.current.style.display = "block";
                         }}
                         placeholder="Write here"
@@ -53,24 +50,10 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         type="text"
                         value={text}
                         onChange={(e) => {
-                            // setTextLength(textLength + 1);
                             setText(e.target.value);
-                            // console.log(textLength);
-                            // if (textLength >= 54) {
-                            //     setTextLength(1)
-                            //     setShowError(true);
-                            // } else if (textLength < 54) {
-                            //     setShowError(false)
-                            // }
-                            // setTextLength(1)
                         }}
                         className="todo-input"
                     />
-                    {/* {showError && (
-                        <div className="error">
-                            Task content can contain max 54 characters.
-                        </div>
-                    )} */}
                     <div ref={errorRef} className="error">
                         Task content can contain max 54 characters.
                     </div>
