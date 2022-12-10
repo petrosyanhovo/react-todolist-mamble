@@ -40,15 +40,11 @@
 }
 
 .modal-background .modal-window .buttons {
-
     display: flex;
     justify-content: center;
 
     position: relative;
-    /* bottom: 52px; */
-    /* left: 151px; */
     top: 120px;
-    /* right: 151px; */
 }
 
 .modal-background .modal-window .buttons .btn {
@@ -62,3 +58,4 @@
     margin: 0 20px;
     padding: 0;
 }
+

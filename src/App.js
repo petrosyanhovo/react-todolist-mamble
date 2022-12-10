@@ -21,8 +21,8 @@ const App = () => {
     const [deleteId, setDeleteId] = useState();
 
     const handleDeleteItem = () => {
-        setTodos((todo) => {
-            const newTodos = [...todo];
+        setTodos((todos) => {
+            const newTodos = [...todos];
             return newTodos.filter((item) => item.id !== deleteId);
         });
         setOpenModal(false);
@@ -45,8 +45,6 @@ const App = () => {
             setIsShowQuote(true);
         }
     }, [todos, isShowQuote]);
-
- 
 
     return (
         <div className="todo-app">

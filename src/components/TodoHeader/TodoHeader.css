@@ -46,6 +46,8 @@ input[type = "checkbox"]:checked:after {
     display: block;
 }
 
+/* MEDIA  */
+
 @media (max-width: 570px) {
     .hideCompleted {
         justify-content: center;

@@ -8,21 +8,15 @@ const TodoModal = ({setOpenModal, handleDeleteItem}) => {
 
   useEffect(() => {
     document.body.addEventListener("mousedown", (e) => {
-        if (
-          // !(e.target in modalRef.current)
-          !modalRef.current.contains(e.target)
-          ) {
-            console.log(e.target);
+        if (!modalRef.current.contains(e.target)) {
           setOpenModal(false);
         };
     });
   });
 
   return (
-    <div onClick={() => {
-      // setOpenModal(false);
-    }} className='modal-background'>
-        <div ref={modalRef}className='modal-window'>
+    <div className='modal-background'>
+        <div ref={modalRef} className='modal-window'>
             <h3 className='text'>Are you sure you want to delete?</h3>
             <div className='buttons'>
               <button 
