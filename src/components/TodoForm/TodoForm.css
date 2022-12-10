@@ -26,6 +26,7 @@ form .error {
     color : #FF3104;
     font-weight : 400;
     line-height : 18px;
+    visibility: hidden;
 }
 
 .clearText {
@@ -180,10 +181,6 @@ form .error {
         /* width: 80%; */
         /* width : 1078px; */
         width : 100%
-    }
-
-    .addBtn {
-        margin-top : 16px;
     }
 }
 

@@ -9,6 +9,7 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
 
     const clearTextRef = useRef();
     const inputRef = useRef();
+    const errorRef = useRef();
 
     useEffect(() => {
         if (text.length === 54) {
@@ -20,6 +21,14 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
             inputRef.current.style.borderColor = "#FFCD04";
         }
     }, [text]);
+
+    useEffect(() => {
+        if (showError) {
+            errorRef.current.style.visibility = "visible";
+        } else {
+            errorRef.current.style.visibility = "hidden";
+        }
+    }, [showError]);
 
     return (
         <div className="todo-form">
@@ -57,11 +66,14 @@ const TodoForm = ({ onAdd, todos, isShowQuote }) => {
                         }}
                         className="todo-input"
                     />
-                    {showError && (
+                    {/* {showError && (
                         <div className="error">
                             Task content can contain max 54 characters.
                         </div>
-                    )}
+                    )} */}
+                    <div ref={errorRef} className="error">
+                        Task content can contain max 54 characters.
+                    </div>
                     <span
                         ref={clearTextRef}
                         onClick={(e) => {
