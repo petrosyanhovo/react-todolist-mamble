@@ -46,6 +46,8 @@ const App = () => {
         }
     }, [todos, isShowQuote]);
 
+ 
+
     return (
         <div className="todo-app">
             {openModal && (
