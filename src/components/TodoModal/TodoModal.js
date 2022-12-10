@@ -1,5 +1,4 @@
 import React from 'react'
-// import TodoList from '../TodoList/TodoList';
 import './TodoModal.css'
 
 

@@ -88,9 +88,6 @@ const App = () => {
             />
             <TodoList
                 handleClickDelete={handleClickDelete}
-                // setTodos={setTodos}
-                // openModal={openModal}
-                // setOpenModal={setOpenModal}
                 todos={todos}
                 onChange={(newTodo) => {
                     setTodos(
