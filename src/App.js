@@ -79,8 +79,6 @@ const App = () => {
         openModal={openModal}
         setOpenModal={setOpenModal}
         todos={todos} 
-        openModal = {openModal}
-        setOpenModal = {setOpenModal}
         onDelete={(todo) => {
           setTodos(todos.filter((t) => t.id !== todo.id))
         }}

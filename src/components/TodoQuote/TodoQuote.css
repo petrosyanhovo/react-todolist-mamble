@@ -20,3 +20,75 @@
     color: #666;
     margin: 0;
 }
+
+@media (max-width: 720px) {
+    .todo-quote h3 {
+        font-size: 22px;
+    }
+
+    .todo-quote h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 656px) {
+    .todo-quote h3 {
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .todo-quote h2 {
+        font-size: 28px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 612px) {
+    .todo-quote h3 {
+        font-size: 18px;
+    }
+
+    .todo-quote h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 570px) {
+   
+
+    .todo-quote h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 526px) {
+     .todo-quote h3 {
+        font-size: 16px;
+    }
+
+    .todo-quote h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 483px) {
+    .todo-quote h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 442px) {
+    .todo-quote h2 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 406px) {
+    
+    .todo-quote h3 {
+        font-size: 14px;
+    }
+    .todo-quote h2 {
+        font-size: 16px;
+    }
+}

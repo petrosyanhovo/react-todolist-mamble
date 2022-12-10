@@ -46,7 +46,7 @@ input[type = "checkbox"] {
     outline: none;
     appearance: none;
     height: 18px;
-    width: 18px;
+    min-width: 18px;
     background-color: none;
     border: 2px solid #008594;
     cursor: pointer;

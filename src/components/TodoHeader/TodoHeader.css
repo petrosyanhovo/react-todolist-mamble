@@ -44,3 +44,11 @@ input[type = "checkbox"]:checked {
 input[type = "checkbox"]:checked:after {
     display: block;
 }
+
+@media (max-width: 570px) {
+    .hideCompleted {
+        justify-content: center;
+        position: static;
+        margin-bottom: 50px;
+    }
+}
