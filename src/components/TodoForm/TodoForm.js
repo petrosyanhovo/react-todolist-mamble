@@ -10,11 +10,10 @@ const TodoForm = ({ onAdd, isShowQuote }) => {
     const errorRef = useRef();
 
     useEffect(() => {
-        if (text.length === 54) {
-            console.log("Length is 54");
+        if (text.length === 55) {
             setShowError(true);
             inputRef.current.style.borderColor = "#FF3104";
-        } else if (text.length <= 54) {
+        } else if (text.length <= 55) {
             setShowError(false);
             inputRef.current.style.borderColor = "#FFCD04";
         }
@@ -46,7 +45,7 @@ const TodoForm = ({ onAdd, isShowQuote }) => {
                             clearTextRef.current.style.display = "block";
                         }}
                         placeholder="Write here"
-                        maxLength={54}
+                        maxLength={55}
                         type="text"
                         value={text}
                         onChange={(e) => {
@@ -76,7 +75,6 @@ const TodoForm = ({ onAdd, isShowQuote }) => {
                     onClick={(e) => {
                         e.preventDefault();
                         if (!showError) {
-                            console.log("clicked");
                             onAdd(text);
                             setText("");
                         }

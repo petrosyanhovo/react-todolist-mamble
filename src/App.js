@@ -31,7 +31,6 @@ const App = () => {
     const handleClickDelete = (id) => {
         setDeleteId(id);
         setOpenModal(true);
-        console.log(id);
     };
 
     useEffect(() => {
@@ -40,7 +39,6 @@ const App = () => {
             setIsShowQuote(false);
             setIsShowCheckBox(true);
         }
-        console.log(todos);
         if (isShowQuote === false && todos.length === 0) {
             setIsShowQuote(true);
         }
